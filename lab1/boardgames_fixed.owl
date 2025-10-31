@@ -1,0 +1,682 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/boardgames#"
+     xml:base="http://example.org/boardgames"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://example.org/boardgames"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/boardgames#designedBy -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/boardgames#designedBy">
+        <rdfs:domain rdf:resource="http://example.org/boardgames#Game"/>
+        <rdfs:range rdf:resource="http://example.org/boardgames#Designer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/boardgames#hasGenre -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/boardgames#hasGenre">
+        <rdfs:domain rdf:resource="http://example.org/boardgames#Game"/>
+        <rdfs:range rdf:resource="http://example.org/boardgames#Genre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/boardgames#hasMechanic -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/boardgames#hasMechanic">
+        <rdfs:domain rdf:resource="http://example.org/boardgames#Game"/>
+        <rdfs:range rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/boardgames#CooperativeOrHiddenTeamplay -->
+
+    <owl:Class rdf:about="http://example.org/boardgames#CooperativeOrHiddenTeamplay">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/boardgames#Game"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#hasGenre"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#cooperative"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#hasMechanic"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#hidden_roles"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/boardgames#DeckBuilderGame -->
+
+    <owl:Class rdf:about="http://example.org/boardgames#DeckBuilderGame">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/boardgames#Game"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#hasGenre"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#deck_builder"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#hasMechanic"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#deck_building"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/boardgames#DeepStrategy -->
+
+    <owl:Class rdf:about="http://example.org/boardgames#DeepStrategy">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/boardgames#Game"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#hasMechanic"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#area_control"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#hasMechanic"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#worker_placement"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#hasMechanic"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#dice_rolling"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/boardgames#Designer -->
+
+    <owl:Class rdf:about="http://example.org/boardgames#Designer"/>
+    
+
+
+    <!-- http://example.org/boardgames#EuroWorkerPlacement -->
+
+    <owl:Class rdf:about="http://example.org/boardgames#EuroWorkerPlacement">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/boardgames#Game"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/boardgames#hasGenre"/>
+                        <owl:hasValue rdf:resource="http://example.org/boardgames#eurogame"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/boardgames#hasMechanic"/>
+                        <owl:hasValue rdf:resource="http://example.org/boardgames#worker_placement"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/boardgames#Game -->
+
+    <owl:Class rdf:about="http://example.org/boardgames#Game"/>
+    
+
+
+    <!-- http://example.org/boardgames#GatewayGame -->
+
+    <owl:Class rdf:about="http://example.org/boardgames#GatewayGame">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/boardgames#Game"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#hasMechanic"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#set_collection"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#hasMechanic"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#tile_placement"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#hasMechanic"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#area_control"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/boardgames#Genre -->
+
+    <owl:Class rdf:about="http://example.org/boardgames#Genre"/>
+    
+
+
+    <!-- http://example.org/boardgames#Mechanic -->
+
+    <owl:Class rdf:about="http://example.org/boardgames#Mechanic"/>
+    
+
+
+    <!-- http://example.org/boardgames#ModernClassic -->
+
+    <owl:Class rdf:about="http://example.org/boardgames#ModernClassic">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/boardgames#Game"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#designedBy"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#klaus_teuber"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://example.org/boardgames#designedBy"/>
+                                <owl:hasValue rdf:resource="http://example.org/boardgames#matt_leacock"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/boardgames#abstract -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#abstract">
+        <rdf:type rdf:resource="http://example.org/boardgames#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#agricola -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#agricola">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+        <hasGenre rdf:resource="http://example.org/boardgames#eurogame"/>
+        <hasMechanic rdf:resource="http://example.org/boardgames#worker_placement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#ameritrash -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#ameritrash">
+        <rdf:type rdf:resource="http://example.org/boardgames#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#antoine_bauza -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#antoine_bauza">
+        <rdf:type rdf:resource="http://example.org/boardgames#Designer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#area_control -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#area_control">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#azul -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#azul">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#battlestar_galactica -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#battlestar_galactica">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#carcassonne -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#carcassonne">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+        <hasGenre rdf:resource="http://example.org/boardgames#eurogame"/>
+        <hasMechanic rdf:resource="http://example.org/boardgames#tile_placement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#catan -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#catan">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+        <designedBy rdf:resource="http://example.org/boardgames#klaus_teuber"/>
+        <hasGenre rdf:resource="http://example.org/boardgames#eurogame"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#chess -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#chess">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#cooperative -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#cooperative">
+        <rdf:type rdf:resource="http://example.org/boardgames#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#corey_konieczka -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#corey_konieczka">
+        <rdf:type rdf:resource="http://example.org/boardgames#Designer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#coup -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#coup">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+        <hasMechanic rdf:resource="http://example.org/boardgames#hidden_roles"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#deck_builder -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#deck_builder">
+        <rdf:type rdf:resource="http://example.org/boardgames#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#deck_building -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#deck_building">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#dice_rolling -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#dice_rolling">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#dixit -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#dixit">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+        <hasGenre rdf:resource="http://example.org/boardgames#party"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#dominion -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#dominion">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+        <hasGenre rdf:resource="http://example.org/boardgames#deck_builder"/>
+        <hasMechanic rdf:resource="http://example.org/boardgames#deck_building"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#drafting -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#drafting">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#elizabeth_hargrave -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#elizabeth_hargrave">
+        <rdf:type rdf:resource="http://example.org/boardgames#Designer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#engine_builder -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#engine_builder">
+        <rdf:type rdf:resource="http://example.org/boardgames#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#eurogame -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#eurogame">
+        <rdf:type rdf:resource="http://example.org/boardgames#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#gloomhaven -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#gloomhaven">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#go -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#go">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#hand_management -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#hand_management">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#hidden_roles -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#hidden_roles">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#jamey_stegmaier -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#jamey_stegmaier">
+        <rdf:type rdf:resource="http://example.org/boardgames#Designer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#klaus_teuber -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#klaus_teuber">
+        <rdf:type rdf:resource="http://example.org/boardgames#Designer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#love_letter -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#love_letter">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#matt_leacock -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#matt_leacock">
+        <rdf:type rdf:resource="http://example.org/boardgames#Designer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#pandemic -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#pandemic">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+        <designedBy rdf:resource="http://example.org/boardgames#matt_leacock"/>
+        <hasGenre rdf:resource="http://example.org/boardgames#cooperative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#party -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#party">
+        <rdf:type rdf:resource="http://example.org/boardgames#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#resource_management -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#resource_management">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#root -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#root">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+        <hasMechanic rdf:resource="http://example.org/boardgames#area_control"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#route_building -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#route_building">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#scythe -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#scythe">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#set_collection -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#set_collection">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#set_collection_genre -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#set_collection_genre">
+        <rdf:type rdf:resource="http://example.org/boardgames#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#seven_wonders -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#seven_wonders">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+        <hasGenre rdf:resource="http://example.org/boardgames#eurogame"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#social_deduction -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#social_deduction">
+        <rdf:type rdf:resource="http://example.org/boardgames#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#splendor -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#splendor">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#tableau_building -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#tableau_building">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#terraforming_mars -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#terraforming_mars">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#ticket_to_ride -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#ticket_to_ride">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#tile_placement -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#tile_placement">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#uwe_rosenberg -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#uwe_rosenberg">
+        <rdf:type rdf:resource="http://example.org/boardgames#Designer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#vlaada_chvatil -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#vlaada_chvatil">
+        <rdf:type rdf:resource="http://example.org/boardgames#Designer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#wargame -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#wargame">
+        <rdf:type rdf:resource="http://example.org/boardgames#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#wingspan -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#wingspan">
+        <rdf:type rdf:resource="http://example.org/boardgames#Game"/>
+        <designedBy rdf:resource="http://example.org/boardgames#elizabeth_hargrave"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/boardgames#worker_placement -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/boardgames#worker_placement">
+        <rdf:type rdf:resource="http://example.org/boardgames#Mechanic"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
